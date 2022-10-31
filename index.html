@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxes Model</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/global.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <div class="encbz-logo">
+                <div id="logo">
+                    <img src="./images/logo-davinci-blanco.svg" alt="">
+                    <hr>
+                    <h5 class="mini-titulo">PROGRAMACION I</h5>
+                    <h5 class="mini-titulo">PARCIAL Nº 1</h5>
+                </div>
+            </div>
+            <div class="encbz-titulo">
+                <div class="titulo-web">
+                    <h1>COLECCION SPOTIFY</h1>
+                </div>
+                <div>
+                    <img id="spotify" src="./images/spotifysmall.png" alt="Spotify Logo" width="50px">
+                </div>
+            </div>
+            <div class="encbz-info">
+                <div class="comision">
+                    <div class="datos-izq">
+                        <p class="subtitulo">Integrantes:</p>
+                        <p>Julio Oscar Adaro</p>
+                        <p>Valeria Alejandra Flores</p>
+                    </div>
+                    <div class="datos-der">
+                        <p><b class="subtitulo">Comisión: </b>DWN2CV</p>
+                        <p><b class="subtitulo">Turno: </b>Noche</p>
+                        <p><b class="subtitulo">Modalidad: </b>V</p>
+                    </div>            
+                </div>
+            </div>
+        </div>
+        <nav class="botonera">
+            <div class="contenedorbtn">
+                <button class="btn" id="btn1" onclick="ingresarDisco();">CARGAR DISCO</button>
+                <button class="btn" id="btn2" onclick="limpiarListado()">LIMPIAR PANTALLA</button>
+            </div>
+            <div class="contenedorbtn">
+                <button class="btn" id="btn3" onclick="mostrarCodigo();">MOSTRAR DISCO</button>
+                <button class="btn" id="btn4" onclick="mostrarDiscos();">MOSTRAR TODO</button>                    
+            </div>
+        </nav>
+    </header>
+
+    <main class="main row-flex space-around" id="main">
+
+        <div class="ext-container row-flex">
+            <div class="int-container">
+                <div class="info-div info">
+                    <h3 class="titulo">INFORMACION DE LA COLECCION</h3>
+                    <hr>
+                    <h4 class="subtitulo">CANTIDAD</h4>
+                    <p>DISCOS:<span id="discos">0</span></p>
+                    <p>CANCIONES:<span id="pistas">0</span></p>
+                    <h4 class="subtitulo">DURACION</h4>
+                    <p>TIEMPO TOTAL:<span id="duracion">00h00m00s</span></p>
+                    <p>TIEMPO PROMEDIO POR DISCO:<span id="promdurdiscos">00h00m00s</span></p>
+                    <p>TIEMPO PROMEDIO POR CANCION:<span id="promdurpistas">00m00s</span></p>
+                    <h4 class="subtitulo">OTROS DATOS DE DURACION</h4>
+                    <p>DISCO DE MENOR DURACION:<span id="menordurdisco">00h00m00s</span></p>
+                    <p></p>
+                    <p>DISCO DE MAYOR DURACION:<span id="mayordurdisco">00h00m00s</span></p>
+                    <p></p>
+                    <p>CANCION DE MENOR DURACION:<span id="menordurpista">00m00s</span></p>
+                    <p></p>
+                    <p>CANCION DE MAYOR DURACION:<span id="mayordurpista">00m00s</span></p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="mid-divisor"></div>
+            <div class="int-container">
+                <div class="instructions-div">
+                    <h3 class="titulo">BOTONES DE COMANDO</h3>
+                    <hr>
+                    <h4 class="btngreen">CARGAR DISCO</h4>
+                    <p class="justify">Permite cargar la información y pistas de un nuevo disco.</p>
+                    <h4 class="btngreen">LIMPIAR PANTALLA</h4>
+                    <p class="justify">Permite limpiar de la pantalla las fichas de información de los discos visualizados.</p>
+                    <h4 class="btnblue">MOSTRAR DISCO</h4>
+                    <p class="justify">Permite ingresar un código de disco y muestra en pantalla la ficha de información de ese disco.</p>
+                    <h4 class="btnblue">MOSTRAR TODO</h4>
+                    <p class="justify">Muestra en pantalla las fichas de información y pistas de todos los discos de la biblioteca.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ext-container row-flex">
+            <div class="int-container">
+                <div class="poster-div">
+                    <img src="./images/nodiscimg1.png" alt="Portada">
+                </div>
+                <div class="info-div">
+                    <h3 class="titulo info-album">INFORMACION DEL DISCO<span>CODIGO:<span class="nrocod">#00</span></span></h3>
+                    <hr>
+                    <p class="subtitulo">TITULO DEL DISCO:<span>AH VIA MUSICOM</span></p>
+                    <p class="subtitulo">ARTISTA/GRUPO:<span>ERIC JOHNSON</span></p>
+                    <hr>
+                    <p class="subtitulo">AÑO DE LANZAMIENTO:<span>1990</span></p>
+                    <p class="subtitulo">CANTIDAD DE PISTAS:<span>11</span></p>
+                    <p class="subtitulo">DURACION TOTAL:<span>40m49s</span></p>
+                    <hr>
+                    <p class="subtitulo">PISTA DE MENOR DURACION:<span>01m47s</span></p>
+                    <p class="subtitulo">PISTA DE MAYOR DURACION:<span>05m46s</span></p>
+                </div>
+            </div>
+            <div class="mid-divisor"></div>
+            <div class="int-container">
+                <div class="track-div">
+                    <hr class="horizontal-bar">
+                    <h3 class="titulo">LISTA DE PISTAS</h3>
+                    <hr>
+                    <ol class="list">
+                        <li><span>AH VIA MUSICOM<span>02m04s</span></span></li>
+                        <li><span>CLIFFS OF DOVER<span class="color-rojo">04m10s</span></span></li>
+                        <li><span>DESERT ROSE<span class="color-rojo">04m55s</span></span></li>
+                        <li><span>HIGH LANDRONS<span class="color-rojo">05m46s</span></span></li>
+                        <li><span>STEVE'S BOOGIE<span>01m51s</span></span></li>
+                        <li><span>TRADEMARK<span class="color-rojo">04m45s</span></span></li>
+                        <li><span>NOTHING CAN KEEP ME FROM YOU<span class="color-rojo">04m23s</span></span></li>
+                        <li><span>SONG FOR GEORGE<span>01m47s</span></span></li>
+                        <li><span>RIGHTEOUS<span class="color-rojo">03m27s</span></span></li>
+                        <li><span>FORTY MILE TOWN<span class="color-rojo">04m13s</span></span></li>
+                        <li><span>EAST WES<span class="color-rojo">03m28s</span></span></li>
+                     </ol> 
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <script>cargarDatos();</script>
+
+</body>
+</html>
