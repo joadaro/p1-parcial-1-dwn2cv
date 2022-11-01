@@ -117,9 +117,9 @@ const biblioteca = {
         }
     },
     getMinDurationTrack: function(){ // Devuelve la pista de menor duración en toda la biblioteca
+        let returnTrack = new Track('',0);;
         if(this.discos.length){
             let minTrack;
-            let returnTrack;
             let min = maxSecs + 1;
             for (let disco of this.discos){
                 minTrack = this.getAlbumMinTime(disco);
@@ -130,13 +130,13 @@ const biblioteca = {
             }
             return returnTrack;
         } else {
-            return 0;
+            return returnTrack;
         }
     },
     getMaxDurationTrack: function(){ // Devuelve la pista de mayor duración en toda la biblioteca
+        let returnTrack = new Track('',0);;
         if(this.discos.length){
             let maxTrack;
-            let returnTrack;
             let max = minSecs - 1;
             for (let disco of this.discos){
                 maxTrack = this.getAlbumMaxTime(disco);
@@ -147,7 +147,7 @@ const biblioteca = {
             }
             return returnTrack;
         } else {
-            return 0;
+            return returnTrack;
         }
     },
     updateInfo: function(){
