@@ -75,13 +75,13 @@ function limpiarListado(){
             <p>TIEMPO PROMEDIO POR CANCION:<span id="promdurpistas">00m00s</span></p>
             <h4 class="subtitulo">OTROS DATOS DE DURACION</h4>
             <p>DISCO DE MENOR DURACION:<span id="menordurdisco">00m00s</span></p>
-            <p></p>
+            <div class="menor" id="menordisco"></div>
             <p>DISCO DE MAYOR DURACION:<span id="mayordurdisco">00m00s</span></p>
-            <p></p>
+            <div class="mayor" id="mayordisco"></div>
             <p>CANCION DE MENOR DURACION:<span id="menordurpista">00m00s</span></p>
-            <p></p>
+            <div class="menor" id="menorpista"></div>
             <p>CANCION DE MAYOR DURACION:<span id="mayordurpista">00m00s</span></p>
-            <p></p>
+            <div class="mayor" id="mayorpista"></div>
         </div>
     </div>
     <div class="mid-divisor"></div>

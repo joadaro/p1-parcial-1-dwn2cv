@@ -17,6 +17,16 @@ class Track{
         this.time = time;
     };
 }
+class Info{
+    artist; // Almacena el nombre del artista
+    title; // Almacena el nombre del disco o pista
+    time; // Almacena la duración del disco o pista
+    constructor(artist,title,time){
+        this.artist = artist;
+        this.title = title;
+        this.time = time;
+    }
+}
 /* Declaración de Clase Album */
 class Album{
     artist; // Almacena el nombre del artista
@@ -80,33 +90,37 @@ const biblioteca = {
         }
     },
     getMinDuration: function(){ // Devuelve el disco de menor duración de la biblioteca (sólo el tiempo)
+        let returnAlbum = new Info('','',0);
         if (this.discos.length){
             let duration;
             let min = maxSecs * 2;
             for (let disco of this.discos){
                 duration = this.getAlbumDuration(disco);
                 if (duration < min){
+                    returnAlbum = new Info(disco.artist,disco.title,duration);
                     min = duration;
                 }
             }
-            return min;
+            return returnAlbum;
         } else {
-            return 0;
+            return returnAlbum;
         }
     },
     getMaxDuration: function(){ // Devuelve el disco de mayor duración de la biblioteca (sólo el tiempo)
+        let returnAlbum = new Info('','',0);
         if (this.discos.length){
             let duration;
             let max = minSecs - 1;
             for (let disco of this.discos){
                 duration = this.getAlbumDuration(disco);
                 if (duration > max){
+                    returnAlbum = new Info(disco.artist,disco.title,duration);
                     max = duration;
                 }
             }
-            return max;
+            return returnAlbum;
         } else {
-            return 0;
+            return returnAlbum;
         }
     },
     getAvgDurationTracks: function(){ // Devuelve el promedio de duración de la totalidad de pistas de la biblioteca
@@ -117,14 +131,14 @@ const biblioteca = {
         }
     },
     getMinDurationTrack: function(){ // Devuelve la pista de menor duración en toda la biblioteca
-        let returnTrack = new Track('',0);;
+        let returnTrack = new Info('','',0);
         if(this.discos.length){
             let minTrack;
             let min = maxSecs + 1;
             for (let disco of this.discos){
                 minTrack = this.getAlbumMinTime(disco);
                 if (minTrack.time < min){
-                    returnTrack = minTrack;
+                    returnTrack = new Info(disco.artist,minTrack.track,minTrack.time);
                     min = minTrack.time;
                 }
             }
@@ -134,14 +148,14 @@ const biblioteca = {
         }
     },
     getMaxDurationTrack: function(){ // Devuelve la pista de mayor duración en toda la biblioteca
-        let returnTrack = new Track('',0);;
+        let returnTrack = new Info('','',0);
         if(this.discos.length){
             let maxTrack;
             let max = minSecs - 1;
             for (let disco of this.discos){
                 maxTrack = this.getAlbumMaxTime(disco);
                 if (maxTrack.time > max){
-                    returnTrack = maxTrack;
+                    returnTrack = new Info(disco.artist,maxTrack.track,maxTrack.time);
                     max = maxTrack.time;
                 }
             }
@@ -156,10 +170,14 @@ const biblioteca = {
         document.getElementById("duracion").innerHTML = formatTime(this.getTotalDuration(),1);
         document.getElementById("promdurdiscos").innerHTML = formatTime(this.getAvgDuration(),1);
         document.getElementById("promdurpistas").innerHTML = formatTime(this.getAvgDurationTracks(),1);
-        document.getElementById("menordurdisco").innerHTML = formatTime(this.getMinDuration(),1);
-        document.getElementById("mayordurdisco").innerHTML = formatTime(this.getMaxDuration(),1);
+        document.getElementById("menordurdisco").innerHTML = formatTime(this.getMinDuration().time,1);
+        document.getElementById("menordisco").innerHTML = `<p>${this.getMinDuration().artist} - ${this.getMinDuration().title}</p>`;
+        document.getElementById("mayordurdisco").innerHTML = formatTime(this.getMaxDuration().time,1);
+        document.getElementById("mayordisco").innerHTML = `<p>${this.getMaxDuration().artist} - ${this.getMaxDuration().title}</p>`;
         document.getElementById("menordurpista").innerHTML = formatTime(this.getMinDurationTrack().time,1);
-        document.getElementById("mayordurpista").innerHTML = formatTime(this.getMaxDurationTrack().time,1);    
+        document.getElementById("menorpista").innerHTML = `<p>${this.getMinDurationTrack().artist} - ${this.getMinDurationTrack().title}</p>`;
+        document.getElementById("mayordurpista").innerHTML = formatTime(this.getMaxDurationTrack().time,1);
+        document.getElementById("mayorpista").innerHTML = `<p>${this.getMaxDurationTrack().artist} - ${this.getMaxDurationTrack().title}</p>`;
     },
     /* Métodos de Album específico de la Biblioteca */
     getAlbumDuration: function(album){ // Devuelve la duración total del album

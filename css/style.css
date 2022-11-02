@@ -182,6 +182,14 @@ header{
 .subtitulo{
     color: var(--spgreysolid);
 }
+.menor > p{
+    text-align: center;
+    color: #66cc66;
+}
+.mayor > p{
+    text-align: center;
+    color: crimson;
+}
 .poster-div{
     width: var(--width);
     height: var(--width);
